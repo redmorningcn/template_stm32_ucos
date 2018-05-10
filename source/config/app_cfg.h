@@ -40,24 +40,37 @@
 */
 
 #define  APP_CFG_SERIAL_EN                          DEF_ENABLED
+#define  APP_CFG_MODBUS_EN                          DEF_ENABLED                 /* uc/modbus 模块 启动或禁止*/
+
+
 
 /*
 *********************************************************************************************************
-*                                            TASK PRIORITIES
+*                                            TASK PRIORITIES（任务优先级）保证文档整洁，请清除无效任务定义
 *********************************************************************************************************
 */
+#define  MB_OS_CFG_RX_TASK_PRIO     (OS_CFG_PRIO_MAX - 14)  /* ModBus任务的优先级（没有用到ModBus则不需要关注）   */
+#define  APP_TASK_START_PRIO        (OS_CFG_PRIO_MAX - 13)  /* start的任务优先级                                  */ 
 
-#define  APP_TASK_START_PRIO                        2
+#define  APP_TASK_OSAL_PRIO         (OS_CFG_PRIO_MAX -  3)  /* OSAL任务优先级                                     */
+
+
 
 
 /*
 *********************************************************************************************************
+*                                           配置任务堆栈的大小
 *                                            TASK STACK SIZES
 *                             Size of the task stacks (# of OS_STK entries)
+*                      堆栈的字节大小 = CPU数据宽度 * 8 * size = 4 * 8 * size(字节)
+*                           如：APP_TASK_SAMPLE_STK_SIZE = 128u，实际为 128u * 4 = 512（字节）
+*                             可以在IAR仿真中查看堆栈大小分配是否充足。
 *********************************************************************************************************
 */
+#define  MB_OS_CFG_RX_TASK_STK_SIZE                 512u        // ModBus任务堆栈的大小
+#define  APP_TASK_START_STK_SIZE                    128u        // 给起始任务分配堆栈
+#define  APP_TASK_OSAL_STK_SIZE                     512u
 
-#define  APP_TASK_START_STK_SIZE                    128
 
 
 /*

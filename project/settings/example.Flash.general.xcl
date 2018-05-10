@@ -2,7 +2,7 @@
 
 "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\arm\bin\armsim2.dll" 
 
-"F:\iar\001 backup\Micrium_uC-Eval-STM32F107_uCOS-III uModbus OSAL\project\Flash\Exe\OS.out" 
+"F:\iar\template\Micrium_uC-Eval-STM32F107_uCOS-III_uModbus_OSAL\project\Flash\Exe\OS.out" 
 
 --plugin "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\arm\bin\armbat.dll" 
 

@@ -60,16 +60,16 @@
         <option>
           <name>GRuntimeLibSelect</name>
           <version>0</version>
-          <state>1</state>
+          <state>2</state>
         </option>
         <option>
           <name>GRuntimeLibSelectSlave</name>
           <version>0</version>
-          <state>1</state>
+          <state>2</state>
         </option>
         <option>
           <name>RTDescription</name>
-          <state>Use the normal configuration of the C/C++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
+          <state>Use the full configuration of the C/C++ runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
         </option>
         <option>
           <name>OGProductVersion</name>
@@ -123,7 +123,7 @@
         </option>
         <option>
           <name>RTConfigPath2</name>
-          <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
+          <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Full.h</state>
         </option>
         <option>
           <name>GBECoreSlave</name>
@@ -321,6 +321,12 @@
           <state>$PROJ_DIR$\..\source\Software\EvalBoards\Micrium\uC-Eval-STM32F107\BSP\ST\STM32\inc</state>
           <state>$PROJ_DIR$\..\source\Software\EvalBoards\Micrium\uC-Eval-STM32F107\BSP\OS\uCOS-III</state>
           <state>$PROJ_DIR$\..\source\Software\EvalBoards\Micrium\uC-Eval-STM32F107\BSP</state>
+          <state>$PROJ_DIR$\..\source\Software\uC-MB\Cfg\Template</state>
+          <state>$PROJ_DIR$\..\source\Software\uC-MB\OS\uCOS-III</state>
+          <state>$PROJ_DIR$\..\source\Software\uC-MB\Ports\STM32\STM32F103\IAR</state>
+          <state>$PROJ_DIR$\..\source\Software\uC-MB\Source</state>
+          <state>$PROJ_DIR$\..\source\task</state>
+          <state>$PROJ_DIR$\..\source\user</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -340,7 +346,7 @@
         </option>
         <option>
           <name>CCOptLevel</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCOptStrategy</name>
@@ -349,7 +355,7 @@
         </option>
         <option>
           <name>CCOptLevelSlave</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>CompilerMisraRules98</name>
@@ -975,6 +981,9 @@
         <name>$PROJ_DIR$\..\source\config\app_cfg.h</name>
       </file>
       <file>
+        <name>$PROJ_DIR$\..\source\config\app_def.h</name>
+      </file>
+      <file>
         <name>$PROJ_DIR$\..\source\config\cpu_cfg.h</name>
       </file>
       <file>
@@ -1004,6 +1013,9 @@
     </group>
     <group>
       <name>user</name>
+      <file>
+        <name>$PROJ_DIR$\..\source\user\app_var.c</name>
+      </file>
     </group>
     <file>
       <name>$PROJ_DIR$\..\source\config\app.c</name>
@@ -1208,6 +1220,12 @@
     </file>
   </group>
   <group>
+    <name>doc</name>
+    <file>
+      <name>$PROJ_DIR$\..\doc\&#x5De5;&#x7A0B;&#x6587;&#x4eF6;&#x8BF4;&#x660e;.txt</name>
+    </file>
+  </group>
+  <group>
     <name>uC/CPU</name>
     <file>
       <name>$PROJ_DIR$\..\source\Software\uC-CPU\ARM-Cortex-M3\IAR\cpu.h</name>
@@ -1263,6 +1281,60 @@
     <file>
       <name>$PROJ_DIR$\..\source\Software\uC-LIB\lib_str.h</name>
     </file>
+  </group>
+  <group>
+    <name>uC/MB</name>
+    <group>
+      <name>cfg</name>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\Cfg\Template\mb_app_hooks.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\Cfg\Template\mb_app_hooks.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\Cfg\Template\mb_cfg.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\Cfg\Template\MB_DATA.C</name>
+      </file>
+    </group>
+    <group>
+      <name>os</name>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\OS\uCOS-III\MB_OS.C</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\OS\uCOS-III\MB_OS.H</name>
+      </file>
+    </group>
+    <group>
+      <name>port</name>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\Ports\STM32\STM32F103\IAR\MB_BSP.C</name>
+      </file>
+    </group>
+    <group>
+      <name>source</name>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\Source\MB.C</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\Source\MB.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\Source\MB_DEF.H</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\Source\MB_UTIL.C</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\Source\MBM_CORE.C</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\uC-MB\Source\MBS_CORE.C</name>
+      </file>
+    </group>
   </group>
   <group>
     <name>uC/OS-III</name>

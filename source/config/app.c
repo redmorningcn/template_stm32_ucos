@@ -90,7 +90,6 @@ int  main (void)
 {
     OS_ERR  err;
 
-
     BSP_IntDisAll();                                            /* Disable all interrupts.                              */
 
     OSInit(&err);                                               /* Init uC/OS-III.                                      */

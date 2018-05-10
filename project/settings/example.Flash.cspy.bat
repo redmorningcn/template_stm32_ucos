@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "F:\iar\001 backup\Micrium_uC-Eval-STM32F107_uCOS-III uModbus OSAL\project\settings\example.Flash.general.xcl" --backend -f "F:\iar\001 backup\Micrium_uC-Eval-STM32F107_uCOS-III uModbus OSAL\project\settings\example.Flash.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "F:\iar\template\Micrium_uC-Eval-STM32F107_uCOS-III_uModbus_OSAL\project\settings\example.Flash.general.xcl" --backend -f "F:\iar\template\Micrium_uC-Eval-STM32F107_uCOS-III_uModbus_OSAL\project\settings\example.Flash.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "F:\iar\001 backup\Micrium_uC-Eval-STM32F107_uCOS-III uModbus OSAL\project\settings\example.Flash.general.xcl" "--debug_file=%~1" --backend -f "F:\iar\001 backup\Micrium_uC-Eval-STM32F107_uCOS-III uModbus OSAL\project\settings\example.Flash.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "F:\iar\template\Micrium_uC-Eval-STM32F107_uCOS-III_uModbus_OSAL\project\settings\example.Flash.general.xcl" "--debug_file=%~1" --backend -f "F:\iar\template\Micrium_uC-Eval-STM32F107_uCOS-III_uModbus_OSAL\project\settings\example.Flash.driver.xcl" 
 
 @echo off 
 :end
