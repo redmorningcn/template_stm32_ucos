@@ -241,5 +241,12 @@ void  App_OS_TaskSwHook (void)
 
 void  App_OS_TimeTickHook (void)
 {
-
+    /***********************************************
+    * 描述： 添加OSAL支持
+    */
+    extern void osalTimerUpdate(void);
+//#if ( OSAL_EN == DEF_ENABLED )
+    osalTimerUpdate();                              // OSAL定时器更新    
+//#endif
+    
 }

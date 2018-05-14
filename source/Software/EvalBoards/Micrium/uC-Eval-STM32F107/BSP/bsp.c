@@ -192,7 +192,6 @@ void  BSP_Init (void)
     while (RCC_GetFlagStatus(RCC_FLAG_PLL3RDY) == RESET) {      /* Wait for PLL3 to lock.                               */
         ;
     }
-
                                                                 /* Fprediv1 = PLL2 / 5 =  8MHz.                         */
     RCC_PREDIV1Config(RCC_PREDIV1_Source_PLL2, RCC_PREDIV1_Div5);
     RCC_PLL1Config(RCC_PLL1Source_PREDIV1, RCC_PLL1Mul_9);      /* PLL1 = Fprediv1 * 9 = 72Mhz.                         */
@@ -216,6 +215,9 @@ void  BSP_Init (void)
 
     BSP_StatusInit();                                           /* Initialize the status input(s)                       */
 
+    extern  void    BSP_Init_Hook(void);
+    BSP_Init_Hook();                                            //redmorningcn  BSP初始化钩子函数，在任务开始前执行 
+    
 #ifdef TRACE_EN                                                 /* See project / compiler preprocessor options.         */
     DBGMCU_CR |=  DBGMCU_CR_TRACE_IOEN_MASK;                    /* Enable tracing (see Note #2).                        */
     DBGMCU_CR &= ~DBGMCU_CR_TRACE_MODE_MASK;                    /* Clr trace mode sel bits.                             */
@@ -278,7 +280,6 @@ CPU_INT32U  BSP_CPU_ClkFreq (void)
 static  void  BSP_LED_Init (void)
 {
     GPIO_InitTypeDef  gpio_init;
-
 
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
 

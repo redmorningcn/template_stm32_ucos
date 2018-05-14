@@ -34,7 +34,6 @@
 *                                                      CONSTANTS
 ************************************************************************************************************************
 */
-
                                                             /* --------------------- MISCELLANEOUS ------------------ */
 #define  OS_CFG_MSG_POOL_SIZE            100u               /* Maximum number of messages                             */
 #define  OS_CFG_ISR_STK_SIZE             128u               /* Stack size of ISR stack (number of CPU_STK elements)   */
@@ -68,5 +67,10 @@
 #define  OS_CFG_TMR_TASK_RATE_HZ          10u               /* Rate for timers (10 Hz Typ.)                           */
 #define  OS_CFG_TMR_TASK_STK_SIZE        128u               /* Stack size (number of CPU_STK elements)                */
 #define  OS_CFG_TMR_WHEEL_SIZE            17u               /* Number of 'spokes' in timer wheel; SHOULD be prime     */
+
+
+#ifndef  OS_TICKS_PER_SEC
+#define   OS_TICKS_PER_SEC OS_CFG_TICK_RATE_HZ
+#endif
 
 #endif

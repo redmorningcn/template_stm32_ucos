@@ -1056,7 +1056,7 @@
         <name>$PROJ_DIR$\..\source\config\app_cfg.h</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\source\config\app_def.h</name>
+        <name>$PROJ_DIR$\..\source\config\app_type.h</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\source\config\cpu_cfg.h</name>
@@ -1085,11 +1085,32 @@
     </group>
     <group>
       <name>task</name>
+      <file>
+        <name>$PROJ_DIR$\..\source\task\app_task_osal.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\task\app_task_osal_tmr.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\task\tasks.h</name>
+      </file>
     </group>
     <group>
       <name>user</name>
       <file>
+        <name>$PROJ_DIR$\..\source\user\app_com_type.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\user\app_ModbusInit.c</name>
+      </file>
+      <file>
         <name>$PROJ_DIR$\..\source\user\app_var.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\user\hook.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\user\hook.h</name>
       </file>
     </group>
     <file>
@@ -1299,6 +1320,42 @@
     <file>
       <name>$PROJ_DIR$\..\doc\&#x5De5;&#x7A0B;&#x6587;&#x4eF6;&#x8BF4;&#x660e;.txt</name>
     </file>
+  </group>
+  <group>
+    <name>OSAL</name>
+    <group>
+      <name>port</name>
+    </group>
+    <group>
+      <name>source</name>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\OSAL\OS\osal.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\OSAL\OS\osal.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\OSAL\OS\osal_cpu.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\OSAL\OS\osal_event.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\OSAL\OS\osal_event.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\OSAL\OS\osal_memory.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\OSAL\OS\osal_memory.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\OSAL\OS\osal_timer.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\source\Software\OSAL\OS\osal_timer.h</name>
+      </file>
+    </group>
   </group>
   <group>
     <name>uC/CPU</name>

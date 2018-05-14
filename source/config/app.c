@@ -159,7 +159,17 @@ static  void  AppTaskStart (void *p_arg)
 
     while (DEF_TRUE) {                                          /* Task body, always written as an infinite loop.       */
         BSP_LED_Toggle(0);
-        OSTimeDlyHMSM(0, 0, 0, 100,
+        
+//        char buf[4] = {0,1,2,3};
+//        
+//        for(int i =0 ; i < 3;i++)
+//        {
+//            memcpy(sCtrl.ComCtrl[i].pch->TxBuf,buf,sizeof(buf));
+//            sCtrl.ComCtrl[i].pch->TxBufByteCtr = sizeof(buf);
+//            MB_Tx (sCtrl.ComCtrl[i].pch);
+//        }
+
+        OSTimeDlyHMSM(0, 0, 0, 500,
                       OS_OPT_TIME_HMSM_STRICT,
                       &err);
     }
@@ -180,6 +190,7 @@ static  void  AppTaskStart (void *p_arg)
 
 static  void  AppTaskCreate (void)
 {
+    OS_TaskCreateHook();
 }
 
 

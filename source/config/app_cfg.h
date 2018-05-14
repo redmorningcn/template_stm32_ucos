@@ -41,6 +41,7 @@
 
 #define  APP_CFG_SERIAL_EN                          DEF_ENABLED
 #define  APP_CFG_MODBUS_EN                          DEF_ENABLED                 /* uc/modbus 模块 启动或禁止*/
+#define  APP_CFG_OSAL_EN                            DEF_ENABLED                 /* OSAL 模块 启动或禁止*/
 
 
 
@@ -51,6 +52,7 @@
 */
 #define  MB_OS_CFG_RX_TASK_PRIO     (OS_CFG_PRIO_MAX - 14)  /* ModBus任务的优先级（没有用到ModBus则不需要关注）   */
 #define  APP_TASK_START_PRIO        (OS_CFG_PRIO_MAX - 13)  /* start的任务优先级                                  */ 
+#define  APP_TASK_COMM_PRIO         (OS_CFG_PRIO_MAX - 12 )  /* COM任务优先级                                     */
 
 #define  APP_TASK_OSAL_PRIO         (OS_CFG_PRIO_MAX -  3)  /* OSAL任务优先级                                     */
 
@@ -69,7 +71,9 @@
 */
 #define  MB_OS_CFG_RX_TASK_STK_SIZE                 512u        // ModBus任务堆栈的大小
 #define  APP_TASK_START_STK_SIZE                    128u        // 给起始任务分配堆栈
-#define  APP_TASK_OSAL_STK_SIZE                     512u
+#define  APP_TASK_OSAL_STK_SIZE                     512u        //OSAL任务堆栈
+#define  APP_TASK_COMM_STK_SIZE                     512u        //COMM任务堆栈
+
 
 
 
@@ -99,6 +103,37 @@
 
 #define  APP_TRACE_INFO(x)            ((APP_TRACE_LEVEL >= TRACE_LEVEL_INFO)  ? (void)(APP_TRACE x) : (void)0)
 #define  APP_TRACE_DEBUG(x)           ((APP_TRACE_LEVEL >= TRACE_LEVEL_DEBUG) ? (void)(APP_TRACE x) : (void)0)
+
+
+
+
+/*
+*********************************************************************************************************
+*                                    APP
+*********************************************************************************************************
+*/
+/*******************************************************************************
+ * 				            OSAL相关定义                                       *
+ *******************************************************************************/
+/*******************************************************************************
+* 描述： OSAL任务优先级定义
+*/
+#define	OS_TASK_PRO_TMR                 OS_TASK_PRIO_HIGHEST - 0
+
+/***************************************************
+* 描述： OSAL任务ID定义
+*/
+#define OS_TASK_ID_TMR                  0x00
+
+/*******************************************************************************
+* 描述： OSAL事件定义
+*/
+/***************************************************
+* 描述： OSAL事件定义：TMR任务事件(20170930 定时器会不时停止发送，控制数据量8个)
+*/
+//#define OS_EVT_TMR_TICKS                0X00000001
+//#define OS_EVT_TMR_MTR                  0X00000002
+#define OS_EVT_TMR_MSEC                 0X00000004
 
 
 #endif
