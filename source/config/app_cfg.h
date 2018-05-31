@@ -135,5 +135,15 @@
 //#define OS_EVT_TMR_MTR                  0X00000002
 #define OS_EVT_TMR_MSEC                 0X00000004
 
+/*******************************************************************************
+* Description  : 串口任务事件标识组
+* Author       : 2018/5/18 星期五, by redmorningcn
+*/
+#define COMM_EVT_FLAG_MTR_RX            (0x1 << 0)	/* MTR 接收事件                 */
+#define COMM_EVT_FLAG_DTU_RX            (0x1 << 1)	/* DTU 接收事件                 */
+#define COMM_EVT_FLAG_TAX_RX            (0x1 << 2)	/* TAX 接收事件                 */
+#define COMM_EVT_FLAG_MTR_TX            (0x1 << 3)	/* MTR 发送事件                 */
+#define COMM_EVT_FLAG_DTU_TX            (0x1 << 4)	/* DTU 发送事件                 */
+#define COMM_EVT_FLAG_TAX_TX            (0x1 << 5)	/* TAX 发送事件                 */
 
 #endif

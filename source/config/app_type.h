@@ -31,11 +31,11 @@ typedef union _Unnctrl_ {
 }Unnctrl;
 
 //±äÁ¿ÉùÃ÷
-extern   volatile Unnctrl     sCtrl;
+extern    Unnctrl     Ctrl;
 
-extern   volatile StrCOMCtrl  * DtuCom;
-extern   volatile StrCOMCtrl  * MtrCom;
-extern   volatile  StrCOMCtrl  * TaxCom;
+extern    StrCOMCtrl  * DtuCom;
+extern    StrCOMCtrl  * MtrCom;
+extern    StrCOMCtrl  * TaxCom;
 
 #endif                                                          /* End of  include.                       */
 

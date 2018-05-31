@@ -65,7 +65,7 @@ CPU_BOOLEAN  MB_CoilRd (CPU_INT16U   coil,
     * 描述： 密码确认，通讯前先将MB_DATA_ACC_PASSWORD写入reg0
     */
 //    if ( Ctrl.Para.dat.Password != MB_DATA_ACC_PASSWORD ) {
-//    if ( sCtrl.buf.Password != MB_DATA_ACC_PASSWORD ) {
+//    if ( Ctrl.buf.Password != MB_DATA_ACC_PASSWORD ) {
 //        *perr = MODBUS_ERR_ILLEGAL_DATA_ADDR;
 //        return 0;
 //    }
@@ -77,11 +77,11 @@ CPU_BOOLEAN  MB_CoilRd (CPU_INT16U   coil,
     //CPU_INT16U      *preg       = (CPU_INT16U *) Ctrl.Para.buf2;
     //CPU_INT16U *preg       = (CPU_INT16U *)& Ctrl.Para.buf2[0];
     
-    CPU_INT16U *preg       = (CPU_INT16U *)& sCtrl.buf;
+    CPU_INT16U *preg       = (CPU_INT16U *)& Ctrl.buf;
     /***********************************************
     * 描述： 获取值
     */
-    if ( reg < sizeof(sCtrl.buf) / 2 ) {
+    if ( reg < sizeof(Ctrl) / 2 ) {
         reg_val = preg[reg];
         *perr = MODBUS_ERR_NONE;
     } else {
@@ -147,11 +147,11 @@ void  MB_CoilWr (CPU_INT16U    coil,
     reg_val         |= coil_val << bit;
     
     //CPU_INT16U      *preg       = (CPU_INT16U *) Ctrl.Para.buf2;
-    CPU_INT16U *preg       = (CPU_INT16U *)& sCtrl.buf; //首地址
+    CPU_INT16U *preg       = (CPU_INT16U *)& Ctrl.buf; //首地址
     /***********************************************
     * 描述： 获取值
     */
-    if ( reg < sizeof(sCtrl.buf) / 2 ) {
+    if ( reg < sizeof(Ctrl) / 2 ) {
         /***********************************************
         * 描述：
         */
@@ -367,11 +367,11 @@ CPU_INT16U  MB_HoldingRegRd (CPU_INT16U   reg,
 
 //        
 //    CPU_INT16U *preg       = (CPU_INT16U *)& Ctrl.Para.buf2[0];
-    CPU_INT16U *preg   	= (CPU_INT16U *)&sCtrl.buf[0];
+    CPU_INT16U *preg   	= (CPU_INT16U *)&Ctrl.buf[0];
     /***********************************************
     * 描述： 获取值
     */
-    if ( reg < sizeof(sCtrl.buf) / 2 ) {
+    if ( reg < sizeof(Ctrl) / 2 ) {
         //CPU_CRITICAL_ENTER();
         reg_val = preg[reg];
         //CPU_CRITICAL_EXIT();
@@ -426,7 +426,7 @@ CPU_FP32  MB_HoldingRegRdFP (CPU_INT16U   reg,
     * 描述： 浮点寄存器
     */
 //    CPU_FP32   *preg        = (CPU_FP32 *)&Ctrl.Sen.Para.buf3[0];
-    CPU_FP32   *preg        = (CPU_FP32 *)&sCtrl.buf;   //取首地址
+    CPU_FP32   *preg        = (CPU_FP32 *)&Ctrl.buf;   //取首地址
     
     reg        = reg - MODBUS_CFG_FP_START_IX;
     CPU_FP32   reg_val      = 0;
@@ -434,7 +434,7 @@ CPU_FP32  MB_HoldingRegRdFP (CPU_INT16U   reg,
     /***********************************************
     * 描述： 获取值
     */
-    if ( reg < sizeof(sCtrl.buf) / 4 ) {
+    if ( reg < sizeof(Ctrl) / 4 ) {
         preg    += reg;
         //CPU_SR_ALLOC();
         //CPU_CRITICAL_ENTER();
@@ -493,12 +493,12 @@ void  MB_HoldingRegWr (CPU_INT16U   reg,
     (void)reg_val;
     
 //    CPU_INT16U *preg       = (CPU_INT16U *)& Ctrl.Para.buf2[0];
-    CPU_INT16U *preg       = (CPU_INT16U *)&sCtrl.buf;             //取首地址
+    CPU_INT16U *preg       = (CPU_INT16U *)&Ctrl.buf;             //取首地址
     
     /***********************************************
     * 描述： 在指定地址写入数据
     */
-    if ( reg < sizeof(sCtrl.buf) / 2 ) {
+    if ( reg < sizeof(Ctrl) / 2 ) {
         preg    += reg;
         /***********************************************
         * 描述： 写入测量模块校准参数
@@ -563,13 +563,13 @@ void  MB_HoldingRegWrFP (CPU_INT16U   reg,
     * 描述： 浮点寄存器
     */
 //    CPU_FP32   *preg      = (CPU_FP32 *)&Ctrl.Sen.Para.buf3[0];
-    CPU_FP32   *preg       = (CPU_FP32 *)&sCtrl.buf;   //取首地址
+    CPU_FP32   *preg       = (CPU_FP32 *)&Ctrl.buf;   //取首地址
 
     reg        = reg - MODBUS_CFG_FP_START_IX;
     /***********************************************
     * 描述： 获取值
     */
-    if ( reg < sizeof(sCtrl.buf) / 4 ) {
+    if ( reg < sizeof(Ctrl) / 4 ) {
         preg    += reg;
         //CPU_SR_ALLOC();
         //CPU_CRITICAL_ENTER();
